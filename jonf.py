@@ -1,7 +1,7 @@
 """JONF parser/formatter in Python - https://jonf.app/"""
 
-__version__ = "0.0.4"
-__jonf_format_version__ = "0.0.11"
+__version__ = "0.0.5"
+__jonf_format_version__ = "0.0.12"
 
 import json
 from typing import Any, Callable, Tuple

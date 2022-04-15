@@ -20,8 +20,25 @@ text = textwrap.dedent(
     """
 ).rstrip()
 
-# TODO:
-# assert jonf.parse(text) == {"compare": ["true", True]}
+data = {
+    "compare": [
+        "true",
+        True,
+    ]
+}
 
-assert jonf.format({"compare": ["true", True]}) == text
+# TODO:
+# assert jonf.parse(text) == data
+
+assert jonf.format(data) == text
+
+print(jonf.format(data))
+```
+
+Output:
+
+```
+compare =
+  - true
+  = true
 ```
