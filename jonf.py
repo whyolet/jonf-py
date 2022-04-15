@@ -1,16 +1,18 @@
 """JONF parser/formatter in Python - https://jonf.app/"""
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __jonf_format_version__ = "0.0.11"
 
-from typing import Any
+import json
+from typing import Any, Callable
 
 
-def parse(text: str) -> Any:
+def parse(text: str, json_parse: Callable[[str], Any] = json.loads) -> Any:
     """Parses JONF text to Python data
 
     Args:
         text: JONF text
+        json_parse: JSON parser to use, default is `json.loads`
 
     Returns:
         Python data, parsed from this text
@@ -29,11 +31,12 @@ def parse(text: str) -> Any:
     raise NotImplementedError
 
 
-def format(data: Any) -> str:
+def format(data: Any, json_format: Callable[[Any], str] = json.dumps) -> str:
     """Formats Python data to JONF text
 
     Args:
         data: Any data that can be converted to JSON
+        json_format: JSON formatter to use, default is `json.dumps`
 
     Returns:
         JONF text, representing this data
