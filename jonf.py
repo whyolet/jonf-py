@@ -1,6 +1,6 @@
 """JONF parser/formatter in Python - https://jonf.app/"""
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 __jonf_format_version__ = "0.0.11"
 
 import json

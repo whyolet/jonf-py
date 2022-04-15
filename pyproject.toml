@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jonf"
-version = "0.0.1"
+version = "0.0.3"
 description = "JONF parser/formatter in Python"
 keywords = ["jonf", "json", "configuration", "dsl", "parser"]
 readme = "README.md"
