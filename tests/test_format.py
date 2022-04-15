@@ -107,6 +107,8 @@ def test_format_2_jonf_array() -> None:
         = []
         - {}
         = {}
+        - ""
+        = ""
         """
     ).rstrip()
 
@@ -131,6 +133,8 @@ def test_format_2_jonf_array() -> None:
         [],
         "{}",
         {},
+        '""',
+        "",
     ]
 
     assert jonf.format(data) == text
