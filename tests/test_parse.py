@@ -1,14 +1,18 @@
+import textwrap
+
 import pytest
 
 import jonf
 
 
 def test_parse() -> None:
-    text = """\
-compare =
-  - true
-  = true
-"""
+    text = textwrap.dedent(
+        """\
+        compare =
+          - true
+          = true
+        """
+    ).rstrip()
 
     with pytest.raises(NotImplementedError):
         jonf.parse(text)
