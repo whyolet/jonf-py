@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "jonf"
+version = "0.0.1"
+description = "JONF parser/formatter in Python"
+keywords = ["jonf", "json", "configuration", "dsl", "parser"]
+readme = "README.md"
+documentation = "https://jonf.app/"
+repository = "https://github.com/whyolet/jonf-py"
+authors = ["Denis Ryzhkov <denisr@denisr.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+black = "^22"
+flake8 = "^4"
+isort = "^5"
+mypy = "^0"
+poethepoet = "^0"
+pytest = ">=6 <8"
+
+[tool.poe.tasks]
+test = "pytest -xv"
+lt.sequence = ["lint", "test"]
+
+[tool.poe.tasks.ci]
+env.CHECK = "--check"
+sequence = ["lint", "test"]
+
+[tool.poe.tasks.lint]
+env.PY_FILES = "jonf.py tests"
+env.LINE_LENGTH = "88"
+default_item_type = "cmd"
+sequence = [
+    "black $CHECK --line-length $LINE_LENGTH $PY_FILES",
+    "isort $CHECK --line-length $LINE_LENGTH $PY_FILES",
+    "flake8 --max-line-length $LINE_LENGTH $PY_FILES",
+    "mypy --pretty $PY_FILES",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
